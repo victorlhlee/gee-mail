@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<title>DevLeague GeeMail Challenge</title>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
     <script>
@@ -7,13 +8,53 @@
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
         
-      };
+        var element = document.getElementById('main');
+        for (var i = 0; i < window.geemails.length; i++) {
+          var currentMessage = window.geemails[i];
+
+		  var sender = currentMessage.sender;
+          var mySender = document.createElement("div");
+          mySender.innerHTML = sender;
+          element.appendChild(mySender);
+
+          var subject = currentMessage.subject;
+		  var mySubject = document.createElement("row1");
+          mySubject.innerHTML = subject;
+          mySender.appendChild(mySubject);
+
+         var date = currentMessage.date;
+         var myDate = document.createElement("row1");
+         myDate.innerHTML = date;
+         mySubject.appendChild(myDate);
+   
+		}
+
+    }
+
+
     </script>
 	</head>
+	
 	<body>
-		<div class="container" id="main">
-			Build Me!
-		</div>
-		<h1>testing></h1>
-	</body>
+		
+		<header>
+			<h1>GeeMail</h1>
+		</header>
+
+		<div id="menu">
+				<table>
+					<tr><td><b>Compose</b></td></tr>
+					<tr><td>Inbox</td></tr>
+					<tr><td>Draft</td></tr>
+					<tr><td>Trash</td></tr>
+					<tr><td>Spam</td></tr>
+				</table>
+			</div>
+
+		<div id="main">
+			<div id="row1"></div>
+			<div id="row2"></div>
+		</div>			
+		
+		</body>
 </html>

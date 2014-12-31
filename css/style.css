@@ -1,0 +1,33 @@
+body {
+	margin: 0;
+}
+
+
+header {
+	background: black;
+	color: yellow;
+	padding: 5px;
+}
+
+#menu {
+	float: left;
+	width: 100px;
+	height: 600px;
+	background-color: orange;
+	padding: 10px;
+}
+
+#main {
+	float: left;
+	width: 1155px;
+	height: 600px;
+	background-color: silver;
+
+
+	
+}
+
+
+/*footer {
+	clear: both;
+}
