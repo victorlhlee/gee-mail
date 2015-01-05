@@ -9,25 +9,28 @@ header {
 	padding: 5px;
 }
 
+#today{
+	color: white;
+}
+
 #menu {
 	float: left;
 	width: 100px;
-	height: 600px;
+	height: 800px;
 	background-color: orange;
 	padding: 10px;
+	font-weight: bold;
 }
 
 #main {
 	float: left;
 	width: 1155px;
-	height: 600px;
+	height: 800px;
 	background-color: silver;
+}
 
-
-	
+#row2{
+	display: none;
 }
 
 
-/*footer {
-	clear: both;
-}
