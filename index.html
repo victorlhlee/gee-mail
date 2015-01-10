@@ -7,62 +7,62 @@
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        //javascript method to do the same thing
-	
-		//inbox count
-		document.addEventListener("click", function(){
-			document.getElementById("menu").innerHTML="Inbox (1)";
-		});
+    
+        //current Date info 
+        document.getElementById("today").innerHTML = Date();
 
-		//event handler for body message  
-       	document.addEventListener("click", function(){
-        var myBody = document.createElement("row2");
-        myBody.innerHTML = body;
-        element.appendChild(myBody);
-    	});
+        //inbox count
+        document.addEventListener("click", function(){
+        document.getElementById("menu").innerHTML="You Got Mail Homie!";
+        });
 
-    	/*recurring function need to revise this section
-       	var myVar = setInterval (function (){getNewMessage()});
-       	function getNewMessage(){
-       		var now = newDate();
-       		return generateMessage(now);
-       		}*/
+        //event handler for body message  
+        document.addEventListener("click", function(){
+        var bodyElement = document.getElementById("row1");  
+        bodyElement.innerHTML = body;
+        element.appendChild(bodyElement);
+
+        });
+
+        //recurring function (need work on this)
+        window.setInterval(getNewMessage(), 500);
+          function getNewMessage(){
+            var now = new Date();
+            return generateMessage(now);
+          }
         
-			
-		//today's date display in header section
-		document.getElementById("today").innerHTML = Date();
-		
+        //accessing prepopulated data stored in window.geemails variable
+        var element = document.getElementById('main');
 
-		//sender, subject, date data 
-		var element = document.getElementById('main');
-        for (var i = 0; i < window.geemails.length; i++) {
-        var currentMessage = window.geemails[i];
+        for (var i = 0; i < window.geemails.length; i++){
+          var currentMessage = window.geemails[i];
+          var sender = currentMessage.sender;
+          var subject = currentMessage.subject;
+          var date = currentMessage.date;
+          var body = currentMessage.body;
 
-		var sender = currentMessage.sender;
-        var mySender = document.createElement("div");
-        mySender.innerHTML = sender;
-        element.appendChild(mySender);
-
-        var subject = currentMessage.subject;
-		    var mySubject = document.createElement("row1");
-        mySubject.innerHTML = subject;
-        mySender.appendChild(mySubject);
-
-        var date = currentMessage.date;
-        var myDate = document.createElement("row1");
-        myDate.innerHTML = date;
-        mySubject.appendChild(myDate);
-
-       	var body = currentMessage.body;
-        //var myBody = document.createElement("row2");
-        myBody.innerHTML = body;
-        element.appendChild(myBody);
+        //visual list of mail message 
+        var senderElement = document.createElement('row1');
+        senderElement.innerHTML = sender;
+        element.appendChild(senderElement);
        
-        }
-      }
+        var subjectElement = document.createElement('row1');
+        subjectElement.innerHTML = subject;
+        senderElement.appendChild(subjectElement);
 
+        var dateElement = document.createElement('row1');
+        dateElement.innerHTML = date;
+        subjectElement.appendChild(dateElement);
 
-   
+        //body content after clicking on message
+        var bodyElement = document.getElementById('row2');
+        bodyElement.innerHTML = body;
+        row2.appendChild(bodyElement);
+       
+          }
+
+       };    
+     
     </script>
 	</head>
 	
@@ -70,21 +70,30 @@
 		
 		<header>
 			<h1>GeeMail</h1>
+      <h3>Powered By { }</h3>
 			<p id="today"></p>
+
 		</header>
 
 		<div id="menu">
 				<table>
-					<tr><td><b>Inbox</b></td></tr>
+					<tr><td><strong>Inbox {1}</strong></td></tr>
 				</table>
-		</div>	
+		</div>
     	
-    	<div id="main">
-			<p id="row1"></p>
-		</div>	
-  		<p id="row2"></p>
-  		</div>
+    <div id="main"> 
+			    <p id="row1"></p>	  
+          <p id="row2"></p>
 
+    </div> 
+
+    <div>
+        <table>
+          <tr><td><h5><img src="devleague logo.jpeg"></h5></td></tr>
+        </table> 
+    </div>    
+    
+  
 		
 		</body>
 </html>
