@@ -4,6 +4,22 @@
     box-sizing: border-box;
     font-family: 'Asap', sans-serif;
 }
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+body {
+    background-image:url(geemail-background.jpg);
+    margin-left: 20px;
+    margin-top: 20px;
+
+}
+h1{
+    color: white;
+}
 .container {
     width: 1500px;
     margin-left: auto;
