@@ -3,24 +3,22 @@
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
         <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet" type="text/css">
+        <script src="jquery.min.js"></script>
+        <script src="js/trial.js"></script>
     <script>
       window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE.  
+        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
+       var getMail = document.querySelector("sender-contents");
+          getMail.innerHTML = loadGmails();
       };
     </script>
 	</head>
 	<body>
-        <h1>GeeMail</h1>
+        <h1>Geemail</h1> <h3> Everybody's Eemail</h3>
 		<div class="container" id="main">
             <div class="title" id="inbox-title">Inbox</div>
-            
-            
             <div class="title" id="sender-title">Sender</div>
-			
-            
             <div class="title" id="subject-title">Subject</div>
-            
-            
             <div class="title" id="date-title">Date</div>
             
             

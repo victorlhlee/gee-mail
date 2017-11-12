@@ -13,12 +13,11 @@
 
 body {
     background-image:url(geemail-background.jpg);
-    margin-left: 20px;
     margin-top: 20px;
-
 }
-h1{
+h1, h3{
     color: white;
+    margin-left: 30px
 }
 .container {
     width: 1500px;
@@ -28,35 +27,29 @@ h1{
 }
 .title {
     float:left;
-    text-align: center
-    
+    text-align: center; 
 }
 .contents{
     float:left;
     height: 600px;
+    padding-top: 10px;
 }
 #sender-title, #sender-contents {
     background-color: greenyellow;
     width: 20%;
-    
-    
 }
 
 #subject-title, #subject-contents {
     background-color: aqua;
     width: 55%;
-   
-
 }
 
 #date-title, #date-contents {
     background-color: mediumvioletred;
-    width: 15%;
-    
+    width: 15%; 
 }
 
 #inbox-title, #inbox-contents {
     background-color: fuchsia;
     width: 10%;
-   
 }
