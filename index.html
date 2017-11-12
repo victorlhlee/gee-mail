@@ -1,31 +1,57 @@
 <html>
 	<head>
 		<script src="js/mail-generator.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
         <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet" type="text/css">
-        <script src="jquery.min.js"></script>
-        <script src="js/trial.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-       var getMail = document.querySelector("sender-contents");
-          getMail.innerHTML = loadGmails();
+     
+          //Generate initial email messages to console
+       for (i=0; i < window.geemails.length; i++)
+        console.log(geemails[i]);
+        
+          //create division elements to place information
+          let containerClass = document.getElementById('container')
+          
+          var senderContents = document.createElement('div');
+          senderContents.setAttribute = ('class', 'contents');
+          senderContents.id = 'sender-contents';
+          senderContents.innerHTML = 'Sender:';
+          containerClass.appendChild(senderContents);
+          
+          var subjectContents = document.createElement('div');
+          subjectContents.setAttribute = ('class', 'contents');
+          subjectContents.id = 'subject-contents';
+          subjectContents.innerHTML = 'Subject:';
+          containerClass.appendChild(subjectContents);
+          
+          var dateContents = document.createElement('div');
+          dateContents.setAttribute ('class', 'contents');
+          dateContents.id = 'date-contents';
+          dateContents.innerHTML = 'Date:';
+          containerClass.appendChild(dateContents);
+        
+          var bodyContents = document.createElement('div');
+          bodyContents.setAttribute ('class', 'contents');
+          bodyContents.id = 'body-contents';
+          bodyContents.innerHTML = 'Body:';
+          containerClass.appendChild(bodyContents);
+          
       };
     </script>
 	</head>
 	<body>
-        <h1>Geemail</h1> <h3> Everybody's Eemail</h3>
+       <h1>Geemail</h1> <h3> Everybody's Eemail</h3>
 		<div class="container" id="main">
-            <div class="title" id="inbox-title">Inbox</div>
-            <div class="title" id="sender-title">Sender</div>
-            <div class="title" id="subject-title">Subject</div>
-            <div class="title" id="date-title">Date</div>
+             
             
             
-            <div class="contents" id="inbox-contents">Inbox</div>
-            <div class="contents" id="sender-contents">Sender</div>
-            <div class="contents" id="subject-contents">Subject</div>
-            <div class="contents" id="date-contents">Date</div>
+            
+            
             
 		</div>
 	</body>
