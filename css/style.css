@@ -19,37 +19,50 @@ h1, h3{
     color: white;
     margin-left: 30px
 }
+
+.menu-container{
+  color: #fff;
+  background-color: #5995DA;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    width: 1400px;
+}
 .container {
-    width: 1500px;
+    width: 1400px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 20px;
 }
 .title {
-    float:left;
-    text-align: center; 
+    display: flex;
+    justify-content: space-between;
 }
 .contents{
     float:left;
     height: 600px;
     padding-top: 10px;
 }
-#sender-title, #sender-contents {
+ #sender-contents {
     background-color: greenyellow;
     width: 20%;
 }
 
-#subject-title, #subject-contents {
+ #subject-contents {
     background-color: aqua;
     width: 55%;
 }
 
-#date-title, #date-contents {
+ #date-contents {
     background-color: mediumvioletred;
     width: 15%; 
 }
 
-#inbox-title, #inbox-contents {
+ #inbox-contents {
     background-color: fuchsia;
     width: 10%;
 }

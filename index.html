@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet" type="text/css">
         <meta charset="utf-8">
         <title>DevLeague Coding Challenge</title>
-
+        
         <script>
         window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
@@ -16,22 +16,38 @@
           let containterClass, senderContents, subjectContents, dateContents, bodyContents, newMessage;
             
             
-          //Generate initial email messages to console
+          //Generate initial email messages
           let geeMailContent = window.geemails;
           
-          const createEmail = () => {    
-          let output = ""; 
+          const createEmailSender = () => {    
+          let outputSender = ""; 
           for (i=0; i < window.geemails.length; i++){
-              output += "<br>" + geemails[i];
-              console.log(geeMailContent[i].subject)
-              console.log(geeMailContent[i].sender)
-              console.log(geeMailContent[i].date)
+              outputSender += "<br>" + geeMailContent[i].sender;
               }
-          return output;
-            
+          return outputSender;
           }
-        
-          createEmail();
+          
+          const createEmailSubject = () => {    
+          let outputSubject = ""; 
+          for (i=0; i < window.geemails.length; i++){
+              outputSubject += "<br>" + geeMailContent[i].subject;
+              }
+          return outputSubject;
+          }
+          
+          const createEmailDate = () => {    
+          let outputDate = ""; 
+          for (i=0; i < window.geemails.length; i++){
+              outputDate += "<br>" + geeMailContent[i].date;
+              }
+          return outputDate;
+          }
+          
+          
+          
+          createEmailSender();
+          createEmailSubject();
+          createEmailDate();
           
           
           
@@ -41,10 +57,10 @@
           subjectContents = document.getElementById('subject-contents');
           dateContents = document.getElementById('date-contents');
           
-          senderContents.innerHTML = createEmail();
-          
-       
-         
+          senderContents.innerHTML = createEmailSender();
+          subjectContents.innerHTML = createEmailSubject();
+          dateContents.innerHTML = createEmailDate();
+        
           
           //Interval to generate messages
           //setInterval(getNewMessage, 15000){
@@ -55,12 +71,14 @@
 	<body>
        <h1>Geemail</h1> <h3> Everybody's Eemail</h3>
 		<div class="container" id="main">
-            
-                        <div class="title" id="inbox-title">Inbox</div>
-            <div class="title" id="sender-title">Sender</div>
-            <div class="title" id="subject-title">Subject</div>
-            <div class="title" id="date-title">Date</div>
-            
+            <div class='menu-container'>
+                <div class='menu'>
+                    <div class="title" id="inbox-title">Inbox</div>
+                    <div class="title" id="sender-title">Sender</div>
+                    <div class="title" id="subject-title">Subject</div>
+                    <div class="title" id="date-title">Date</div>
+                </div>
+            </div>
             
             <div class="contents" id="inbox-contents">Inbox</div>
             <div class="contents" id="sender-contents">Sender</div>
