@@ -2,9 +2,44 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Asap', sans-serif;
+    font-family: 'Asap', 'sans-serif';
 }
 
+body {
+    background-image:url(geemail-background.jpg);
+    margin-top: 20px;
+}
+
+
+h1, h3{
+    color: white;
+    margin-left: 40px;
+    padding-bottom: 10px;
+}
+
+
+.senderName{
+    font-size: 14px;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 .clearfix::after {
     content: "";
     display: table;
@@ -66,3 +101,4 @@ h1, h3{
     background-color: fuchsia;
     width: 10%;
 }
+*/

@@ -11,60 +11,47 @@
         window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
             
-         //variable declaration
-          
-          let containterClass, senderContents, subjectContents, dateContents, bodyContents, newMessage;
+         for (let i = 0; i < window.geemails.length; i++){
+             console.log(window.geemails[i].sender);
+             console.log(window.geemails[i].subject);
+             console.log(window.geemails[i].date);
+             console.log(window.geemails[i].body);
+             
+             let senderContent = document.createElement('div');
+             senderContent.className = 'senderName';
+             senderContent.innerHTML = window.geemails[i].sender;
+             document.body.appendChild(senderContent);
+             
+             let subjectContent = document.createElement('div');
+             subjectContent.className = 'subjectContents';
+             subjectContent.innerHTML = window.geemails[i].subject;
+             senderContent.appendChild(subjectContent);
             
-            
-          //Generate initial email messages
-          let geeMailContent = window.geemails;
-          
-          const createEmailSender = () => {    
-          let outputSender = ""; 
-          for (i=0; i < window.geemails.length; i++){
-              outputSender += "<br>" + geeMailContent[i].sender;
-              }
-          return outputSender;
-          }
-          
-          const createEmailSubject = () => {    
-          let outputSubject = ""; 
-          for (i=0; i < window.geemails.length; i++){
-              outputSubject += "<br>" + geeMailContent[i].subject;
-              }
-          return outputSubject;
-          }
-          
-          const createEmailDate = () => {    
-          let outputDate = ""; 
-          for (i=0; i < window.geemails.length; i++){
-              outputDate += "<br>" + geeMailContent[i].date;
-              }
-          return outputDate;
-          }
+             
+             let dateContent = document.createElement('div');
+             dateContent.className = 'sentDate';
+             dateContent.innerHTML = window.geemails[i].date;
+             subjectContent.appendChild(dateContent);
+             
+             let bodyContents = document.createElement('div');
+             bodyContents.className = 'bodyContents';
+             bodyContents.innerHTML = window.geemails[i].body;
+             senderContent.appendChild(bodyContents);
+             
+             
+         }
           
           
           
-          createEmailSender();
-          createEmailSubject();
-          createEmailDate();
+          
+          
+         
           
           
           
-          // Assign elements to variables
-          containerClass = document.getElementById('main');
-          senderContents = document.getElementById('sender-contents');
-          subjectContents = document.getElementById('subject-contents');
-          dateContents = document.getElementById('date-contents');
           
-          senderContents.innerHTML = createEmailSender();
-          subjectContents.innerHTML = createEmailSubject();
-          dateContents.innerHTML = createEmailDate();
-        
           
-          //Interval to generate messages
-          //setInterval(getNewMessage, 15000){
-              //return newMessage;}
+          
             };
         </script>
 	</head>
@@ -72,18 +59,7 @@
        <h1>Geemail</h1> <h3> Everybody's Eemail</h3>
 		<div class="container" id="main">
             <div class='menu-container'>
-                <div class='menu'>
-                    <div class="title" id="inbox-title">Inbox</div>
-                    <div class="title" id="sender-title">Sender</div>
-                    <div class="title" id="subject-title">Subject</div>
-                    <div class="title" id="date-title">Date</div>
-                </div>
-            </div>
-            
-            <div class="contents" id="inbox-contents">Inbox</div>
-            <div class="contents" id="sender-contents">Sender</div>
-            <div class="contents" id="subject-contents">Subject</div>
-            <div class="contents" id="date-contents">Date</div>
+              
             
             
             
