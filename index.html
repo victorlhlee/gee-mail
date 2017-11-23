@@ -10,50 +10,94 @@
         <script>
         window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-          
+            
+            
+        //   Global Variable Declaration
+            
+            let emailInfo = window.geemails;
+            let senderContent, subjectContent, dateContent, bodyContents
             
         //renders each email property into separate locations
             
-         for (let i = 0; i < window.geemails.length; i++){
-             console.log(window.geemails[i].sender);
-             console.log(window.geemails[i].subject);
-             console.log(window.geemails[i].date);
-             console.log(window.geemails[i].body);
-             
-             let senderContent = document.createElement('div');
-             senderContent.className = 'senderName';
-             senderContent.innerHTML = window.geemails[i].sender;
-             main.appendChild(senderContent);
-             
-             let subjectContent = document.createElement('div');
-             subjectContent.className = 'subjectContents';
-             subjectContent.innerHTML = window.geemails[i].subject;
-             senderContent.appendChild(subjectContent);
             
+            function createElement(tag,className,text){
+                let el = document.createElement(tag);
+                    el.className = className;
+                    el.innerHTML = text;
+                return el;
+            }
+         
+            
+            
+            for (let i = 0; i < emailInfo.length; i++){
+           
              
-             let dateContent = document.createElement('div');
-             dateContent.className = 'sentDate';
-             dateContent.innerHTML = window.geemails[i].date;
-             senderContent.appendChild(dateContent);
-             
-             let bodyContents = document.createElement('div');
-             bodyContents.className = 'bodyContents';
-             bodyContents.innerHTML = window.geemails[i].body;
-             senderContent.appendChild(bodyContents); 
-             
+                senderContent = createElement('div', 'senderName', emailInfo[i].sender);
+                main.appendChild(senderContent);
+                
+                subjectContent = createElement('div', 'subjectContents', emailInfo[i].subject);
+                senderContent.appendChild(subjectContent);
+                
+                dateContent = createElement('div', 'sentDate', emailInfo[i].date);
+                senderContent.appendChild(dateContent);
+                
+                bodyContents = createElement('div', 'bodyContents', emailInfo[i].body);
+                senderContent.appendChild(bodyContents);
+                bodyContents.style.display = 'none';
+
             }
           
-            //hides all email body until I want user to see
+
             
-            let hideBody = document.querySelectorAll('.bodyContents');
+        //This code will auto generate emails every 5 seconds
             
-            for (var i = 0; i < hideBody.length; i++){
-                hideBody[i].style.display = 'none';
-            }
+            
+            
+                const autoEmailGen = function(){
+        
+                
+                    
+                senderContent = createElement('div', 'senderName', getNewMessage().sender);
+                main.appendChild(senderContent);
+                
+                subjectContent = createElement('div', 'subjectContents', getNewMessage().subject);
+                senderContent.appendChild(subjectContent);
+                
+                dateContent = createElement('div', 'sentDate', getNewMessage().date);
+                senderContent.appendChild(dateContent);
+                
+                bodyContents = createElement('div', 'bodyContents', getNewMessage().body);
+                senderContent.appendChild(bodyContents);
+                bodyContents.style.display = 'none';
+                    
+                    
+                    
+//                    let senderContentTwo = getNewMessage().sender;
+//                    senderContent.appendChild(senderContentTwo);
+//                    
+//                    let subjectContentTwo = getNewMessage().subject;
+//                    subjectContent.appendChild(subjectContentTwo);
+//                    
+//                    let dateContentTwo = getNewMessage().date;
+//                    dateContent.appendChild(dateContentTwo);
+//                    
+//                    let bodyContentsTwo = getNewMessage().body;
+//                    bodyContents.appendChild(bodyContentsTwo);
+//                    bodyContentsTwo.style.display = 'none';
+                
+//               
+                }
+                
+
+            
+             let autogen = setInterval(autoEmailGen, 5000);
+            
+            
             
             
             //show body of text when click on subject
-            
+         
+                 
             let showBody = document.querySelectorAll('.senderName');
             for (var i = 0; i < showBody.length; i++){
                 showBody[i].addEventListener('click', showBodies);
@@ -69,15 +113,8 @@
                 }
             }   
                
-            
-            //This code will auto generate emails every 5 seconds
-             let autoEmailGen = function(){
-                getNewMessage();
-            }
-            
-            let autogen = setInterval(autoEmailGen, 5000);
-            
-            console.log(autoEmailGen);
+          
+             
             
             };
         </script>
