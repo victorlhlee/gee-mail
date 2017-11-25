@@ -12,14 +12,23 @@
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
             
             
-        //   Global Variable Declaration
-            
+        // Global Variable Declaration          
             let emailInfo = window.geemails;
-            let senderContent, subjectContent, dateContent, bodyContents
-            
-        //renders each email property into separate locations
+            let senderContent, subjectContent, dateContent, bodyContents, secondCounter;
             
             
+        
+        // creates inbox counter
+            let counter = emailInfo.length;
+            document.getElementById('counter').innerHTML = counter; 
+            
+        // creates a second inbox counter
+            function secondCounterF(){
+            let secondCounter = ++counter;
+            document.getElementById('counter').innerHTML = secondCounter;  
+            }
+            
+        // renders each email property into separate locations
             function createElement(tag,className,text){
                 let el = document.createElement(tag);
                     el.className = className;
@@ -27,8 +36,7 @@
                 return el;
             }
          
-            
-            
+                       
             for (let i = 0; i < emailInfo.length; i++){
            
              
@@ -44,87 +52,76 @@
                 bodyContents = createElement('div', 'bodyContents', emailInfo[i].body);
                 senderContent.appendChild(bodyContents);
                 bodyContents.style.display = 'none';
-
+                
+                
             }
           
-
-            
-        //This code will auto generate emails every 5 seconds
-            
-            
-            
-                const autoEmailGen = function(){
-        
                 
+            
+        // This code will auto generate emails every 5 seconds
+                 
+            
+                 window.setInterval(function(){
+                    secondCounterF();
+                    autoEmailGen();
+                    }, 5000);
+            
+        
+            
+                let autoEmailGen = function(){
                     
                 senderContent = createElement('div', 'senderName', getNewMessage().sender);
                 main.appendChild(senderContent);
+                //main.insertBefore(senderContent, main.childNodes[0]);
                 
                 subjectContent = createElement('div', 'subjectContents', getNewMessage().subject);
                 senderContent.appendChild(subjectContent);
+                //senderContent.insertBefore(subjectContent, subjectContent.childNodes[0]);
                 
                 dateContent = createElement('div', 'sentDate', getNewMessage().date);
                 senderContent.appendChild(dateContent);
+                //senderContent.insertBefore(dateContent, dateContent.childNodes[0]);
                 
                 bodyContents = createElement('div', 'bodyContents', getNewMessage().body);
                 senderContent.appendChild(bodyContents);
+                //senderContent.insertBefore(bodyContents, bodyContents.childNodes[0]);
                 bodyContents.style.display = 'none';
-                    
-                    
-                    
-//                    let senderContentTwo = getNewMessage().sender;
-//                    senderContent.appendChild(senderContentTwo);
-//                    
-//                    let subjectContentTwo = getNewMessage().subject;
-//                    subjectContent.appendChild(subjectContentTwo);
-//                    
-//                    let dateContentTwo = getNewMessage().date;
-//                    dateContent.appendChild(dateContentTwo);
-//                    
-//                    let bodyContentsTwo = getNewMessage().body;
-//                    bodyContents.appendChild(bodyContentsTwo);
-//                    bodyContentsTwo.style.display = 'none';
-                
-//               
+                 
                 }
-                
-
-            
-             let autogen = setInterval(autoEmailGen, 5000);
-            
-            
-            
+                      
             
             //show body of text when click on subject
-         
-                 
-            let showBody = document.querySelectorAll('.senderName');
-            for (var i = 0; i < showBody.length; i++){
-                showBody[i].addEventListener('click', showBodies);
-            }
-            
-            
-            function showBodies() {
-                let message = this.querySelectorAll('.bodyContents')[0];
-                if (message.style.display === 'none'){
-                    message.style.display = 'block';
-                }else{
-                    message.style.display = 'none';
+                showBodiesF();
+                function showBodiesF(){ 
+                let showBody = document.querySelectorAll('.senderName');
+                for (var i = 0; i < showBody.length; i++){
+                    showBody[i].addEventListener('click', showBodiesF);
+                    showBody[i].addEventListener('click', showBodies);
                 }
-            }   
-               
-          
-             
+
+                function showBodies() {
+                    let message = this.querySelectorAll('.bodyContents')[0];
+                    if (message.style.display === 'none'){
+                        message.style.display = 'block';
+                        
+                    }else{
+                        message.style.display = 'none';
+                    }
+                }   
+                }
+                
+            
             
             };
         </script>
 	</head>
 	<body>
        <h1>Geemail</h1> <h3> Everybody's Eemail</h3>
+        
+        <div class="sidebar" id="inbox">Inbox  (<span id='counter'></span>)<br>Important<br>Sent Mail<br>Drafts<br>Junk Mail<br>Deleted Items</br></div>
 		<div class="container" id="main">
-            <div class="sidebar" id="inbox">Inbox<br>Important<br>Sent Mail<br>Drafts<br>Junk Mail<br>Deleted Items</br></div>
-              
-            
+    
+           
             
             
 		</div>
